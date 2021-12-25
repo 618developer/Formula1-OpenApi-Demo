@@ -1,0 +1,3 @@
+rootProject.name = 'openapi'
+include 'formula1:codegen-v2:java-spring'
+include 'formula1:api-server'

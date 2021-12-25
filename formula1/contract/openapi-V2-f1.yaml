@@ -1,0 +1,79 @@
+swagger: "2.0"
+
+info:
+  title: Formula 1 sample app
+  description: This is the demo for the F1 server
+  version: 1.0.0
+
+basePath: /f1
+
+paths:
+  /constructors:
+    get:
+      description: Returns the constructors
+      summary: Find all constructors
+      operationId: getAllConstructors
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: constructor response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Constructor'
+        default:
+          description: error payload
+          schema:
+            $ref: '#/definitions/ErrorModel'
+    post:
+      description: Create a constructor
+      summary: Adds a new constructor
+      operationId: createConstructor
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: constructorRequest
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/NewConstructorRequest'
+      responses:
+        default:
+          description: successful operation
+
+definitions:
+  Constructor:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      championships:
+        type: integer
+        format: int64
+      homeCountry:
+        type: string
+  NewConstructorRequest:
+    type: object
+    properties:
+      teamName:
+        type: string
+      championshipsWon:
+        type: integer
+        format: int64
+      originCountry:
+        type: string
+  ErrorModel:
+    type: object
+    properties:
+      errorMessage:
+        type: string
+      status:
+        type: string
+
+

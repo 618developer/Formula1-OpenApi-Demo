@@ -1,0 +1,9 @@
+{
+  "modelPackage": "com.developer618.demo.formula1.api.model",
+  "apiPackage": "com.developer618.demo.formula1.api.endpoints",
+  "invokerPackage": "com.developer618",
+  "library": "spring-mvc",
+  "interfaceOnly": true,
+  "java11": true,
+  "defaultInterfaces": true
+}
